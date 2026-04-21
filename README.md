@@ -11,4 +11,15 @@ The updated `handle_connection` function constructs a valid HTTP response by com
 ![Commit 3](assets/images/commit3.png)  
 
 ### Commit 3 Reflection Notes  
-The implementation now distinguishes between different HTTP requests by analyzing the request line and mapping it to specific responses. Using a tuple for status and filename helps decouple response configuration from content generation.
+The implementation now distinguishes between different HTTP requests by analyzing the request line and mapping it to specific responses. Using a tuple for status and filename helps decouple response configuration from content generation.  
+
+### Commit 4 Screen Capture  
+
+1. /sleep request (delayed)  
+![Commit 4a](assets/images/commit4a.png)  
+
+2. Normal request blocked  
+![Commit 4b](assets/images/commit4b.png)  
+
+### Commit 4 Reflection Notes
+By introducing a delay using `thread::sleep`, the server reveals that all requests are handled one at a time. While processing a slow request, other requests cannot be served, resulting in delayed responses.
