@@ -27,5 +27,8 @@ By introducing a delay using `thread::sleep`, the server reveals that all reques
 ### Commit 5 Screen Capture
 ![Commit 5](assets/images/commit5.png)
 
-### Commit 5 Reflection Notes
-The implementation of a ThreadPool improves the server by limiting the number of threads and reusing them to handle incoming requests. Instead of spawning a new thread for each connection, tasks are sent through a channel and executed by worker threads.
+### Commit 5 Reflection Notes  
+The implementation of a ThreadPool improves the server by limiting the number of threads and reusing them to handle incoming requests. Instead of spawning a new thread for each connection, tasks are sent through a channel and executed by worker threads.  
+
+## Bonus Reflection Notes
+The `build` function improves the design by replacing a panic-based approach with explicit error handling using `Result`. Instead of crashing when given an invalid size, it safely returns an error, making the ThreadPool more robust.  
