@@ -5,4 +5,10 @@ The `handle_connection` function processes incoming TCP connections by reading d
 ![Commit 2](assets/images/commit2.png) 
 
 ### Commit 2 Reflection Notes  
-The updated `handle_connection` function constructs a valid HTTP response by combining a status line, headers, and HTML content. The server reads the HTML file using `fs::read_to_string`, calculates its length, and formats the response accordingly.
+The updated `handle_connection` function constructs a valid HTTP response by combining a status line, headers, and HTML content. The server reads the HTML file using `fs::read_to_string`, calculates its length, and formats the response accordingly.  
+
+### Commit 3 Screen Capture  
+![Commit 3](assets/images/commit3.png)  
+
+### Commit 3 Reflection Notes  
+The implementation now distinguishes between different HTTP requests by analyzing the request line and mapping it to specific responses. Using a tuple for status and filename helps decouple response configuration from content generation.
