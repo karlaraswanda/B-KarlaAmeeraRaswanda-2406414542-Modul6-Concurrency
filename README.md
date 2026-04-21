@@ -1,0 +1,3 @@
+## Commit 1 Reflection Notes
+
+The `handle_connection` function processes incoming TCP connections by reading data from the `TcpStream`. A `BufReader` is used to efficiently read the stream line by line, since HTTP requests are text-based. The `.take_while(|line| !line.is_empty())` stops reading at the empty line that separates headers from the body, resulting in a vector of request lines containing the HTTP request structure.
