@@ -51,3 +51,22 @@ impl Worker {
         Worker { id, thread }
     }
 }
+
+impl ThreadPool {
+    pub fn build(size: usize) -> Result<ThreadPool, &'static str> {
+        if size == 0 {
+            return Err("ThreadPool size must be greater than 0");
+        }
+
+        let (sender, receiver) = std::sync::mpsc::channel();
+        let receiver = std::sync::Arc::new(std::sync::Mutex::new(receiver));
+
+        let mut workers = Vec::with_capacity(size);
+
+        for id in 0..size {
+            workers.push(Worker::new(id, std::sync::Arc::clone(&receiver)));
+        }
+
+        Ok(ThreadPool { workers, sender })
+    }
+}
