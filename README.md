@@ -21,5 +21,11 @@ The implementation now distinguishes between different HTTP requests by analyzin
 2. Normal request blocked  
 ![Commit 4b](assets/images/commit4b.png)  
 
-### Commit 4 Reflection Notes
-By introducing a delay using `thread::sleep`, the server reveals that all requests are handled one at a time. While processing a slow request, other requests cannot be served, resulting in delayed responses.
+### Commit 4 Reflection Notes  
+By introducing a delay using `thread::sleep`, the server reveals that all requests are handled one at a time. While processing a slow request, other requests cannot be served, resulting in delayed responses.  
+
+### Commit 5 Screen Capture
+![Commit 5](assets/images/commit5.png)
+
+### Commit 5 Reflection Notes
+The implementation of a ThreadPool improves the server by limiting the number of threads and reusing them to handle incoming requests. Instead of spawning a new thread for each connection, tasks are sent through a channel and executed by worker threads.
